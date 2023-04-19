@@ -4,7 +4,8 @@ import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 
- 
+
+
 public class Controller implements EventHandler<ActionEvent>{
    private Command command;
 
@@ -55,8 +56,11 @@ public class Controller implements EventHandler<ActionEvent>{
        else if (o.equals("√")){
            command.sqrt();
        }
-       else if (o.equals("%")){
-           command.percent();
+       else if (o.equals("log")){
+           command.log();
+       }
+       else if (o.equals("sin") || o.equals("cos") || o.equals("tg") || o.equals("ctg")){
+           command.trigonometricFunction(o);
        }
    }
 

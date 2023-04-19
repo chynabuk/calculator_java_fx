@@ -70,12 +70,33 @@ public class PolishNotation {
             }
             if (getPriority(rpn[i]) >= 1) {
                 if (rpn[i].equals("^2")) {
-                    double aa = Double.parseDouble(stackNumbers.pop());
-                    stackNumbers.push(Double.toString(aa * aa));
+                    double a = Double.parseDouble(stackNumbers.pop());
+                    stackNumbers.push(Double.toString(a * a));
                 } else if (rpn[i].equals("√")) {
-                    double aa = Double.parseDouble(stackNumbers.pop());
-                    stackNumbers.push(Double.toString(Math.sqrt(aa)));
-                } else {
+                    double a = Double.parseDouble(stackNumbers.pop());
+                    stackNumbers.push(Double.toString(Math.sqrt(a)));
+                }
+                else if (rpn[i].equals("log")){
+                    double a = Double.parseDouble(stackNumbers.pop());
+                    stackNumbers.push(Double.toString(Math.log10(a)));
+                }
+                else if (rpn[i].equals("sin")){
+                    double a = Double.parseDouble(stackNumbers.pop());
+                    stackNumbers.push(Double.toString(Math.sin(a)));
+                }
+                else if (rpn[i].equals("cos")){
+                    double a = Double.parseDouble(stackNumbers.pop());
+                    stackNumbers.push(Double.toString(Math.cos(a)));
+                }
+                else if (rpn[i].equals("tg")){
+                    double a = Double.parseDouble(stackNumbers.pop());
+                    stackNumbers.push(Double.toString(Math.tan(a)));
+                }
+                else if (rpn[i].equals("ctg")){
+                    double a = Double.parseDouble(stackNumbers.pop());
+                    stackNumbers.push(Double.toString(1 / Math.tan(a)));
+                }
+                else {
                     double a = Double.parseDouble(stackNumbers.pop());
                     double b = Double.parseDouble(stackNumbers.pop());
 
@@ -93,7 +114,10 @@ public class PolishNotation {
 
 
     public int getPriority(String op) {
-        if (op.equals("^2") || op.equals("√")) {
+        if (
+                op.equals("^2") || op.equals("√") || op.equals("log") ||
+                op.equals("sin") || op.equals("cos") || op.equals("tg") || op.equals("ctg")
+        ) {
             return 4;
         } else if (op.equals("/") || op.equals("*")) {
             return 3;

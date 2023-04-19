@@ -18,6 +18,7 @@ public class Command {
    public void clear(){
        value = "";
        viewer.update(value);
+       viewer.updateRes(value);
    }
 
    public void number(String n){
@@ -71,8 +72,13 @@ public class Command {
        viewer.update(value);
    }
 
-   public void percent(){
-       value += " % ";
+   public void log(){
+       value += " log ";
+       viewer.update(value);
+   }
+
+   public void trigonometricFunction(String t){
+       value += " " + t + " ";
        viewer.update(value);
    }
 
